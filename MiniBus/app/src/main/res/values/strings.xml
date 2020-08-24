@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MiniBus</string>
+    <string name="app_label">MyApp</string>
+    <string name="my_position_name">附近的公交站:%1$s</string>
+    <string name="bus_orientation">%1$s 开往 %2$s</string>
+    <string name="search_title">搜索</string>
+    <string name="search_hint">请输入</string>
+</resources>
