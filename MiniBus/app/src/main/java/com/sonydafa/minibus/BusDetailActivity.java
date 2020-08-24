@@ -100,7 +100,7 @@ public class BusDetailActivity  extends Activity {
     };
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bus_detail_activity);
+        setContentView(R.layout.activity_bus_detail);
         Intent intent = getIntent();
         String busKey = intent.getStringExtra("busKey");
         nearbyStopName = intent.getStringExtra("nearbyStopName");
@@ -124,7 +124,7 @@ public class BusDetailActivity  extends Activity {
                     return false;
             }
         });
-        View view = View.inflate(this,R.layout.layout_header,null);
+        View view = View.inflate(this,R.layout.activity_bus_detail_header,null);
         listView.addHeaderView(view);
         listView.setAdapter(simpleAdapter);
         listView.setClickable(false);

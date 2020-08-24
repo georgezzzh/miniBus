@@ -2,18 +2,14 @@ package com.sonydafa.minibus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.PermissionChecker;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.AppOpsManager;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,7 +17,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -36,7 +31,6 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
@@ -135,10 +129,8 @@ public class MainActivity extends AppCompatActivity {
                         return;
                     }
                     for(String key : map.keySet()){
-                        TextView textView = findViewById(R.id.textView);
-                        String positionName = getResources().getString(R.string.my_position_name);
-                        positionName = String.format(positionName,key);
-                        textView.setText(positionName);
+                        TextView textView = findViewById(R.id.my_position_textview);
+                        textView.setText(key);
                         nearbyStopName = key;
                         List<String> list = map.get(key);
                         if(list==null) break;
@@ -290,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
         simpleAdapter = new SimpleAdapter(this,adapterListData,R.layout.bus_list_item,
                 new String[]{"id","upStop","upDescribe","downStop","downDescribe"},
                 new int[]{R.id.no,R.id.upStop,R.id.upDescribe,R.id.downStop,R.id.downDescribe});
-        View header = View.inflate(this,R.layout.main_header,null);
+        View header = View.inflate(this,R.layout.activity_main_header,null);
         listView.addHeaderView(header);
         listView.setAdapter(simpleAdapter);
         listView.getViewTreeObserver().addOnPreDrawListener(OnPreDrawListener);
