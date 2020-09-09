@@ -46,7 +46,7 @@ public class BusRealTimeStatus {
         int my_idx = list.indexOf(location);
         if(my_idx==-1) return failure_tips;
         ArrayList<Integer> diffs = new ArrayList<>();
-        for(int i=0;i<my_idx;i++){
+        for(int i=0;i<=my_idx;i++){
             if(!map.get(list.get(i)).equals("")){
                 diffs.add(my_idx-i);
             }
